@@ -1,6 +1,6 @@
 # Car Display Tray #
 
-Constructing a drawer for a display of a rear camera. Designed for a BMW 520i from 1990. Replaces the original drawer for cigarettes and hides the display during drive. For parking pull the drawer to you where the display is integrated
+Modelling a drawer for a display of a rear camera. Designed for a BMW 520i from 1990. Replaces the original drawer for cigarettes and hides the display during drive. For parking pull the drawer to you where the display is integrated
 
 ![Final car display tray](pictures/tbd.png)
 
