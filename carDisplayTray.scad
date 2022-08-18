@@ -25,17 +25,33 @@ _fn_d2 =  4;
 
 
 // fr - frame
-fr_width    = 100.0; //mm
-fr_height   =  20.0; //mm
-fr_depth    =  50.0; //mm
+fr_x          = 133.0; //mm
+fr_y1         =  66.5 + 14.0; //mm
+fr_y2         =  86.5 + 14.0; //mm
+fr_z          =  40.0; //mm
 
-fr_border_w =   4.0; //mm
+fr_display_x  = 122.5; //mm
+fr_display_y  =  78.0; //mm
+fr_display_dy =   0.5; //mm
+fr_display_dz =   8.0; //mm
 
-fr_bottom_w =  60.0; //mm
+fr_rail_x1    =  20.0; //mm ???
+fr_rail_x2    =  80.0; //mm ???
+fr_rail_z     =   5.0; //mm ???
 
-fr_hole_x   =  40.0; //mm
-fr_hole_y   =   0.0; //mm
-fr_hole_dia =   4.0; //mm
+fr_slot_x1    =  20.0; //mm ???
+fr_slot_y     =  20.0; //mm ???
+//...
+
+// bd - board
+bd_x1         = -42.5; //mm
+bd_x2         = fr_x + 8.5; // mm
+bd_y1         = -17.5; //mm
+bd_y2         = -20.5; // mm
+bd_y3         = -15.0; // mm
+bd_z1         =   0.0 - 2.0; //mm
+bd_z2         =  33.0 - 2.0; // mm
+bd_z3         =  45.5 - 2.0; // mm
 
 
 // call module
@@ -45,26 +61,29 @@ carDisplayTray();
 module carDisplayTray() {
     union() {
         // frame
-        translate(v = [-fr_width/2, 0, 0]) {
-            difference() {
-                cube(size = [fr_width, fr_height, fr_depth], center = false);
+        difference() {
+            linear_extrude(height = fr_z, convexity = 10) {
+                polygon([[0, 0], [0, fr_y1], [fr_x, fr_y2], [fr_x, 0]]);
+            }
 
-                // border
-                translate(v = [fr_border_w, fr_border_w, fr_border_w]) {
-                    cube(size = [fr_width - 2*fr_border_w, fr_height, fr_depth], center = false);
-                }
+            // display
+            translate(v = [fr_x/2-fr_display_x/2, fr_display_dy, fr_display_dz]) {
+                cube(size = [fr_display_x, fr_display_y, fr_z], center = false);
+            }
 
-                // bottom
-                translate(v = [fr_width/2-fr_bottom_w/2, -0.1, fr_border_w]) {
-                    cube(size = [fr_bottom_w, fr_border_w+0.2, fr_depth], center = false);
-                }
+            // rail
+            translate(v = [fr_rail_x1, -0.1, -0.1]) {
+                cube(size = [fr_rail_x2-fr_rail_x1, fr_y2+0.2, fr_rail_z+0.1], center = false);
+            }
 
-                // holes
-                translate(v = [fr_width/2-fr_hole_x, fr_height/2-fr_hole_y, -0.1]) {
-                    cylinder(h = fr_border_w+0.2, d = fr_hole_dia, center = false, $fn = _fn_hole);
-                }
-                translate(v = [fr_width/2+fr_hole_x, fr_height/2-fr_hole_y, -0.1]) {
-                    cylinder(h = fr_border_w+0.2, d = fr_hole_dia, center = false, $fn = _fn_hole);
+            // slot
+        }
+
+        // board
+        translate(v = [bd_x2, 0, 0]) {
+            rotate(a = -90, v = [0, 1, 0]) {
+                linear_extrude(height = (-bd_x1)+bd_x2, convexity = 10) {
+                    polygon([[bd_z1, 0], [bd_z1, bd_y1], [bd_z2, bd_y2], [bd_z3, bd_y3], [bd_z3, 0]], convexity = 10);
                 }
             }
         }
