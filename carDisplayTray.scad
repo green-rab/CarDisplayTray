@@ -100,14 +100,26 @@ module carDisplayTray() {
                         translate(v=[0,0,0.5]) #polygon([[bd_z1, 0], [bd_z1, bd_y1], [bd_z2, bd_y2], [bd_z3, bd_y3], [bd_z3, 0]], convexity = 10);
                         linear_extrude(height = (-bd_x1)+bd_x2, convexity = 10) {
                             minkowski() {
-                                tmp_dy1 = ((abs(bd_y2)-abs(bd_y1))/(bd_z2-bd_z1)) * bd_edge_r;
-                                tmp_dy3 = ((abs(bd_y2)-abs(bd_y3))/(bd_z3-bd_z2+bd_edge_r)) * bd_edge_r;
+                                //tmp_dy1 = ((abs(bd_y2)-abs(bd_y1)+bd_edge_r)/(bd_z2-bd_z1+bd_edge_r)) * bd_edge_r;
+                                //tmp_dy3 = ((abs(bd_y2)-abs(bd_y3)+bd_edge_r)/(bd_z3-bd_z2+bd_edge_r)) * bd_edge_r;
+                                tmp_angle1 = atan((abs(bd_y2)-abs(bd_y1))/(bd_z2-bd_z1));
+                                tmp_angle3 = atan((abs(bd_y2)-abs(bd_y3))/(bd_z3-bd_z2));
+                                tmp_angle2 = tmp_angle3;
+                                tmp_dy1 = bd_edge_r - tan(tmp_angle1) * bd_edge_r;
+                                tmp_dz2 = sin(tmp_angle2) * bd_edge_r;
+                                tmp_dy2 = cos(tmp_angle2) * bd_edge_r;
+                                //tmp_dy3 = bd_edge_r - tan(tmp_angle3) * bd_edge_r;
+                                tmp_dy3 = sin(tmp_angle3) * bd_edge_r;
+                                echo(tmp_angle1);
+                                echo(tmp_angle3);
+                                echo(tmp_dy1);
+                                echo(tmp_dy3);
 
                                 points = [
                                     [bd_z1+bd_edge_r, -bd_edge_r],
-                                    [bd_z1+bd_edge_r, bd_y1+bd_edge_r-tmp_dy1],
-                                    [bd_z2,           bd_y2+bd_edge_r],
-                                    [bd_z3-bd_edge_r, bd_y3+bd_edge_r-tmp_dy3],
+                                    [bd_z1+bd_edge_r, bd_y1+tmp_dy1],
+                                    [bd_z2-tmp_dz2,   bd_y2+tmp_dy2],
+                                    [bd_z3-bd_edge_r, bd_y3+tmp_dy3],
                                     [bd_z3-bd_edge_r, -bd_edge_r]
                                 ];
 
