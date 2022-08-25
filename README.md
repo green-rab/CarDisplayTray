@@ -78,4 +78,42 @@ Parameters for section 'slot':
 
 ## [EPIC] Resize objects with rounded edges ##
 
-tbd
+The goal is to create a complex shape with rounded edges. Therefore the Minkowski function is used that uses a circle and goes round the shape. The edges are rounded but the shape is bigger as before because of the radius of the circle that is the radius of the corners too.
+
+![Using the Minkowski function](https://lucid.app/publicSegments/view/ffb4a4e9-ca06-4040-a4ad-bed78eb1dca3/image.png "Overview round edges")
+
+One way is using the Resize function to scale the shape down. But here it is not working sufficient. To get the result where the shape keeps its the coordinated of the single points are adjusted before the use of the Minkowski function.
+
+Single steps for calculation are explained below.
+
+### Point 1: Lower right edge ###
+
+This one is easy. Only the radius of the circle for the rounding edge has to be add or substituted from the single points in each direction.
+
+Same for point 5.
+
+### Point 4: Upper left edge ###
+
+This problem is a little bit more complicated. To solve the problem the angle gamma has to be calculated and then some distances a, b and c before the desired distance dy is calculated.
+
+![Point 4: Calculation of dy](https://lucid.app/publicSegments/view/4cc5a863-c1d5-4d18-a564-80384627b660/image.png "Point 4")
+
+The angle gamma can be calculated by the adjacent and opposite side of a right triangle
+
+$$\gamma = atan[(y_{pt4} - y_{pt3}) / (z_{pt4} - z_{pt3})]$$
+
+First calculating the distance at y-axis for the point on the circle that has to fit the shape. There is a right angle crossing the shape from the center of the circle to its border:
+
+$$a = cos(\gamma) * edge_r$$
+
+Next the distance for the z-axis is calculated. Its used to calculate the distance from the center axis of the circle to the border of the shape:
+
+$$b = sin(\gamma) * edge_r$$
+
+$$c = sin(\gamma) * (edge_r - b)$$
+
+By the substract of both values the distance for moving the shape coordinate at the y-axis is found:
+
+$$dy = a - c$$
+
+Same for point 2.

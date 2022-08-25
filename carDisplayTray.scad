@@ -92,54 +92,60 @@ module carDisplayTray() {
         }
 
         // board
-        translate(v = [0, fr_delta_y, 0]) {
-            difference() {
-                translate(v = [bd_pos_x2, 0, 0]) {
-                    rotate(a = -90, v = [0, 1, 0]) {
-                              translate(v=[0,0,0.5]) #polygon([[bd_pos_z1, 0], [bd_pos_z1, bd_pos_y1], [bd_pos_z2, bd_pos_y2], [bd_pos_z3, bd_pos_y3], [bd_pos_z3, 0]], convexity = 10);
-                        linear_extrude(height = (-bd_pos_x1)+bd_pos_x2, convexity = 10) {
-                            minkowski() {
-                                //tmp_dy1 = ((abs(bd_pos_y2)-abs(bd_pos_y1)+bd_edge_r)/(bd_pos_z2-bd_pos_z1+bd_edge_r)) * bd_edge_r;
-                                //tmp_dy3 = ((abs(bd_pos_y2)-abs(bd_pos_y3)+bd_edge_r)/(bd_pos_z3-bd_pos_z2+bd_edge_r)) * bd_edge_r;
-                                tmp_angle1 = atan((abs(bd_pos_y2)-abs(bd_pos_y1))/(bd_pos_z2-bd_pos_z1));
-                                tmp_angle3 = atan((abs(bd_pos_y2)-abs(bd_pos_y3))/(bd_pos_z3-bd_pos_z2));
-                                tmp_angle2 = 180 - tmp_angle1 - tmp_angle3;
-                                tmp_x = bd_edge_r / sin(tmp_angle2/2);
-                                tmp_angle2b = tmp_angle3 + tmp_angle2/2 - 90;
-                                tmp_dy1 = cos(tmp_angle1) * bd_edge_r * (1 - sin(tmp_angle1));
-                                tmp_dz2 = sin(tmp_angle2b)*tmp_x; //sin(tmp_angle2) * bd_edge_r;
-                                tmp_dy2 = cos(tmp_angle2b)*tmp_x; //cos(tmp_angle2) * bd_edge_r;
-                                //tmp_dy3 = bd_edge_r - tan(tmp_angle3) * bd_edge_r;
-                                tmp_dy3 = cos(tmp_angle3) * bd_edge_r * (1 - sin(tmp_angle3));
-                                //tmp_dy3 = cos(tmp_angle3) * bd_edge_r - sin(90-tmp_angle3) * sin(tmp_angle3) * bd_edge_r;
-                                echo(tmp_angle1);
-                                echo(tmp_angle3);
-                                echo(tmp_dy1);
-                                echo(tmp_dy2);
-                                echo(tmp_dy3);
-                                echo(tmp_x);
+        difference() {
+            translate(v = [bd_pos_x2, fr_delta_y, 0]) {
+                rotate(a = -90, v = [0, 1, 0]) {
+                          translate(v=[0,0,0.5]) #polygon([[bd_pos_z1, 0], [bd_pos_z1, bd_pos_y1], [bd_pos_z2, bd_pos_y2], [bd_pos_z3, bd_pos_y3], [bd_pos_z3, 0]], convexity = 10);
+                    linear_extrude(height = (-bd_pos_x1)+bd_pos_x2, convexity = 10) {
+                        minkowski() {
+                            tmp_alpha = atan((abs(bd_pos_y2)-abs(bd_pos_y1))/(bd_pos_z2-bd_pos_z1));
+                            tmp_gamma = atan((abs(bd_pos_y2)-abs(bd_pos_y3))/(bd_pos_z3-bd_pos_z2));
+                            tmp_angle2 = 180 - tmp_alpha - tmp_gamma;
+                            tmp_x = bd_edge_r / sin(tmp_angle2/2);
+                            tmp_angle2b = tmp_gamma + tmp_angle2/2 - 90;
+                            tmp_dz2 = sin(tmp_angle2b)*tmp_x; //sin(tmp_angle2) * bd_edge_r;
+                            tmp_dy2 = cos(tmp_angle2b)*tmp_x; //cos(tmp_angle2) * bd_edge_r;
 
-                                points = [
-                                    [bd_pos_z1+bd_edge_r, -bd_edge_r],
-                                [bd_pos_z1+bd_edge_r, bd_pos_y1+tmp_dy1],
-                                    [bd_pos_z2-tmp_dz2,   bd_pos_y2+tmp_dy2],
-                                    [bd_pos_z3-bd_edge_r, bd_pos_y3+tmp_dy3],
-                                    [bd_pos_z3-bd_edge_r, -bd_edge_r]
-                                ];
+                            point1_z = bd_pos_z1 + bd_edge_r;
+                            point1_y = -bd_edge_r;
 
-                                polygon(points, convexity = 10);
+                            tmp_pt2_a  = cos(tmp_alpha) * bd_edge_r;
+                            tmp_pt2_b  = sin(tmp_alpha) * bd_edge_r;
+                            tmp_pt2_c  = sin(tmp_alpha) * (bd_edge_r - tmp_pt2_b);
+                            tmp_pt2_dy = tmp_pt2_a - tmp_pt2_c;
 
-                                circle(r = bd_edge_r, $fn = _fn);
-                            }
+                            point2_z = bd_pos_z1 + bd_edge_r;
+                            point2_y = bd_pos_y1 + tmp_pt2_dy;
+
+                            tmp_pt4_a  = cos(tmp_gamma) * bd_edge_r;
+                            tmp_pt4_b  = sin(tmp_gamma) * bd_edge_r;
+                            tmp_pt4_c  = sin(tmp_gamma) * (bd_edge_r - tmp_pt4_b);
+                            tmp_pt4_dy = tmp_pt4_a - tmp_pt4_c;
+
+                            point4_z = bd_pos_z3 - bd_edge_r;
+                            point4_y = bd_pos_y3 + tmp_pt4_dy;
+
+                            point5_z = bd_pos_z3 - bd_edge_r;
+                            point5_y = -bd_edge_r;
+
+                            points = [
+                                [point1_z, point1_y],
+                                [point2_z, point2_y],
+                                [bd_pos_z2-tmp_dz2,   bd_pos_y2+tmp_dy2],
+                                [point4_z, point4_y],
+                                [point5_z, point5_y]
+                            ];
+
+                            polygon(points, convexity = 10);
+
+                            circle(r = bd_edge_r, $fn = _fn);
                         }
                     }
                 }
-
-                // cut off for frame
-                translate(v = [0, -fr_delta_y, 0]) {
-                    cube(size = [fr_dim_x, fr_delta_y+0.1, fr_dim_z], center = false);
-                }
             }
+
+            // cut off for frame
+            cube(size = [fr_dim_x, fr_delta_y+0.1, fr_dim_z], center = false);
         }
 
         // slot
