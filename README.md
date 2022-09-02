@@ -141,4 +141,5 @@ $$\delta = \gamma + (\beta/2) - 90°$$
 The last steps is simple. The angle can the hypotenuses are now available that allows to calculate the delta values for the y-axis and here the z-axis too:
 
 $$dy = cos(\delta) * a$$
+
 $$dz = sin(\delta) * a$$
