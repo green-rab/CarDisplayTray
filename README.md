@@ -45,6 +45,8 @@ Parameters for section 'frame':
 | fr_display_dim_x   | x-dimension of display                          |
 | fr_display_dim_y   | y-dimension of display                          |
 | fr_display_delta_z | Distance display from the bottom                |
+| fr_feet_dim_x      | x-dimension for feet for display at the side    |
+| fr_feet_dim_z      | z-dimension for feet for display at the side    |
 | fr_rail_delta_x    | Additional expansion for rail in x-dimension    |
 | fr_rail_pos_x1     | Left position of rail for locking channel       |
 | fr_rail_pos_x1     | Right position of rail for locking channel      |

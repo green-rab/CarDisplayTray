@@ -29,9 +29,14 @@ fr_display_dim_x   = 122.5; //mm
 fr_display_dim_y   =  78.0; //mm
 fr_display_delta_z =   6.0; //mm
 
+fr_feet_dim_x      =  15.0; //mm
+fr_feet_dim_z      =   3.0; //mm
+
 fr_rail_delta_x    =   1.5; //mm
+
 fr_rail_pos_x1     =  31.5 - fr_rail_delta_x; //mm
 fr_rail_pos_x2     = fr_rail_pos_x1 + 52.5 + (2 * fr_rail_delta_x); //mm
+
 fr_rail_dim_z      =   6.1; //mm
 
 // bd - board
@@ -70,32 +75,46 @@ carDisplayTray();
 module carDisplayTray() {
     union() {
         // frame
-        difference() {
-            linear_extrude(height = fr_dim_z, convexity = 10) {
-                minkowski() {
-                    tmp_dy = ((fr_dim_y2 - fr_dim_y1) / fr_dim_x) * fr_edge_r;
+        union() {
+            difference() {
+                linear_extrude(height = fr_dim_z, convexity = 10) {
+                    minkowski() {
+                        tmp_dy = ((fr_dim_y2 - fr_dim_y1) / fr_dim_x) * fr_edge_r;
 
-                    points = [
-                        [fr_edge_r,            fr_edge_r+0.1],
-                        [fr_edge_r,            fr_dim_y1 - fr_edge_r + tmp_dy],
-                        [fr_dim_x - fr_edge_r, fr_dim_y2 - fr_edge_r - tmp_dy],
-                        [fr_dim_x - fr_edge_r, fr_edge_r+0.1]
-                    ];
+                        points = [
+                            [fr_edge_r,            fr_edge_r+0.1],
+                            [fr_edge_r,            fr_dim_y1 - fr_edge_r + tmp_dy],
+                            [fr_dim_x - fr_edge_r, fr_dim_y2 - fr_edge_r - tmp_dy],
+                            [fr_dim_x - fr_edge_r, fr_edge_r+0.1]
+                        ];
 
-                    polygon(points, convexity = 10);
+                        polygon(points, convexity = 10);
 
-                    circle(r = fr_edge_r, $fn = _fn);
+                        circle(r = fr_edge_r, $fn = _fn);
+                    }
+                }
+
+                // display
+                translate(v = [fr_dim_x/2 - fr_display_dim_x/2, 0, fr_display_delta_z]) {
+                    cube(size = [fr_display_dim_x, fr_display_dim_y, fr_dim_z], center = false);
+                }
+
+                // rail
+                tmp_epsilon    = acos((bd_edge_r - abs(bd_pt1_pos_z)) / bd_edge_r);
+                tmp_rail_a     = sin(tmp_epsilon) * bd_edge_r;
+                tmp_rail_b     = bd_edge_r - tmp_rail_a;
+                tmp_rail_dim_y = fr_delta_y - tmp_rail_b;
+                translate(v = [fr_rail_pos_x1, tmp_rail_dim_y, -0.1]) {
+                    cube(size = [fr_rail_pos_x2 - fr_rail_pos_x1, fr_dim_y2+0.2, fr_rail_dim_z+0.1], center = false);
                 }
             }
 
-            // display
+            // feet
             translate(v = [fr_dim_x/2 - fr_display_dim_x/2, 0, fr_display_delta_z]) {
-                cube(size = [fr_display_dim_x, fr_display_dim_y, fr_dim_z], center = false);
+                cube(size = [fr_feet_dim_x, fr_display_dim_y, fr_feet_dim_z], cemter = false);
             }
-
-            // rail
-            translate(v = [fr_rail_pos_x1, -0.1, -0.1]) {
-                cube(size = [fr_rail_pos_x2 - fr_rail_pos_x1, fr_dim_y2+0.2, fr_rail_dim_z+0.1], center = false);
+            translate(v = [fr_dim_x/2 + fr_display_dim_x/2 - fr_feet_dim_x, 0, fr_display_delta_z]) {
+                cube(size = [fr_feet_dim_x, fr_display_dim_y, fr_feet_dim_z], cemter = false);
             }
         }
 
@@ -147,11 +166,6 @@ module carDisplayTray() {
 
         // slot
         union() {
-            // connector
-            translate(v = [st_pos_x1, 0, 0]) {
-                cube(size = [st_pos_x2-st_pos_x1, fr_delta_y, fr_rail_dim_z], center = false);
-            }
-
             // slot for fixation
             translate(v = [st_pos_x1, st_pos_y1, 0]) {
                 cube(size = [st_pos_x2-st_pos_x1, st_pos_y2-st_pos_y1, fr_rail_dim_z], center = false);
