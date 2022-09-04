@@ -45,12 +45,12 @@ Parameters for section 'frame':
 | fr_display_dim_x   | x-dimension of display                          |
 | fr_display_dim_y   | y-dimension of display                          |
 | fr_display_delta_z | Distance display from the bottom                |
-| fr_feet_dim_x      | x-dimension for feet for display at the side    |
-| fr_feet_dim_z      | z-dimension for feet for display at the side    |
 | fr_rail_delta_x    | Additional expansion for rail in x-dimension    |
 | fr_rail_pos_x1     | Left position of rail for locking channel       |
 | fr_rail_pos_x1     | Right position of rail for locking channel      |
 | fr_rail_dim_z      | z-dimension of rail                             |
+| fr_feet_dim_x      | x-dimension for feet for display at the side    |
+| fr_feet_dim_z      | z-dimension for feet for display at the side    |
 
 Parameters for section 'board':
 
@@ -81,6 +81,13 @@ Parameters for section 'slot':
 | st_pos_y1          | Front position of slot for fixation in channel  |
 | st_pos_y2          | Back position of slot for fixation in channel   |
 | st_bar_dim_z       | z-dimension of the bar to connect the fixation  |
+
+Parameters for section 'hole':
+
+| Name               | Description                                     |
+| ------------------ | ----------------------------------------------- |
+| hl_connector_d     | Diameter for hole for connector and wire        |
+| h1_connector_dim_x | x-dimension for hole cutting off the board      |
 
 ## [EPIC] Resize objects with rounded edges ##
 
