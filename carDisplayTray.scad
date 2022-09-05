@@ -21,7 +21,7 @@ fr_delta_y         =  14.0; //mm
 
 fr_dim_y1          =  68.0 + fr_delta_y; //mm
 fr_dim_y2          =  87.0 + fr_delta_y; //mm
-fr_dim_z           =  40.0; //mm ???????????????
+fr_dim_z           =  40.0; //mm
 
 fr_edge_r          =   5.0; //mm
 
@@ -181,13 +181,20 @@ module carDisplayTray() {
         }
 
         // hole
-        translate(v = [h1_connector_dim_x, hl_connector_d/2, fr_display_delta_z + hl_connector_d/2]) {
+        translate(v = [-0.1, hl_connector_d/2, fr_display_delta_z + hl_connector_d/2]) {
             rotate(a = 90, v = [0, 1, 0]) {
-                cylinder(h = abs(h1_connector_dim_x) + (fr_dim_x - fr_display_dim_x)/2 + fr_feet_dim_x + 0.1, d = hl_connector_d, center = false, $fn = _fn);
+                cylinder(h = (fr_dim_x - fr_display_dim_x)/2 + fr_feet_dim_x + 0.2, d = hl_connector_d, center = false, $fn = _fn);
             }
         }
+
+        // hole inside frame
         translate(v = [0, 0, fr_display_delta_z]) {
             cube(size = [(fr_dim_x - fr_display_dim_x)/2 + fr_feet_dim_x + 0.1, hl_connector_d/2, hl_connector_d], center = false);
+        }
+
+        // hole at board
+        translate(v = [h1_connector_dim_x, 0, fr_display_delta_z]) {
+            cube(size = [abs(h1_connector_dim_x) + 0.01, hl_connector_d, fr_dim_z - fr_display_delta_z], center = false);
         }
     }
 }
