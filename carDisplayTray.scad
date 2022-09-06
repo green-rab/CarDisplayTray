@@ -119,6 +119,14 @@ module carDisplayTray() {
                 translate(v = [fr_dim_x/2 + fr_display_dim_x/2 - fr_feet_dim_x, 0, fr_display_delta_z]) {
                     cube(size = [fr_feet_dim_x, fr_display_dim_y, fr_feet_dim_z], center = false);
                 }
+
+                // remove rounded edges inside board
+                translate(v = [0, 0.1, 0]) {
+                    cube(size = [fr_edge_r, fr_edge_r, fr_dim_z], center = false);
+                }
+                translate(v = [fr_dim_x - fr_edge_r, 0.1, 0]) {
+                    cube(size = [fr_edge_r, fr_edge_r, fr_dim_z], center = false);
+                }
             }
 
             // board
