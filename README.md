@@ -109,7 +109,7 @@ Only the radius of the circle for the rounded edges has to be add or substituted
 
 This problem is a little bit more complicated. The example describes the solution for point 4. But it is the same way for point 2. In both cases the distance $dy$ is the goal to achieve.
 
-![Point 4: Calculate $dy$](https://lucid.app/publicSegments/view/4cc5a863-c1d5-4d18-a564-80384627b660/image.png "Point 4")
+![Point 4: Calculate dy](https://lucid.app/publicSegments/view/4cc5a863-c1d5-4d18-a564-80384627b660/image.png "Point 4")
 
 First the angle $\gamma$ has to be calculated by the adjacent and opposite side of a right triangle:
 
@@ -133,7 +133,7 @@ $$dy = a - c$$
 
 In this case the circle has to be moved in two directions to fit to the shape. But only one distance is needed to calculate the values $dy$ and $dz$.
 
-![Point 3: Calculate $dy$ and $dz$](https://lucid.app/publicSegments/view/59a92d40-8ea4-4538-bf2f-7bab815a4b63/image.png "Point 3")
+![Point 3: Calculate dy and dz](https://lucid.app/publicSegments/view/59a92d40-8ea4-4538-bf2f-7bab815a4b63/image.png "Point 3")
 
 To solve this problem the angle $\beta$ has to be calculated. Therefore the already calculated angles $\alpha$ and $\gamma$ are used:
 
