@@ -67,7 +67,7 @@ st_bar_dim_z       =   2.0; //mm
 
 // hl - hole
 hl_connector_d     =  26.0; //mm
-h1_connector_dim_x = bd_pos_x1 + 6.0; //mm
+hl_connector_dim_x = bd_pos_x1 + 6.0; //mm
 
 
 // call module
@@ -201,8 +201,8 @@ module carDisplayTray() {
         }
 
         // hole at board
-        translate(v = [h1_connector_dim_x, 0, fr_display_delta_z]) {
-            cube(size = [abs(h1_connector_dim_x) + 0.01, hl_connector_d, fr_dim_z - fr_display_delta_z], center = false);
+        translate(v = [hl_connector_dim_x, 0, fr_display_delta_z]) {
+            cube(size = [abs(hl_connector_dim_x) + 0.01, hl_connector_d, fr_dim_z - fr_display_delta_z], center = false);
         }
     }
 }
