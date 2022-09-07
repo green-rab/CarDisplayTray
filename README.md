@@ -4,8 +4,8 @@
 
 Designed for a BMW 520i from 1990. Integrates a display for a rear view camera and replaces the original drawer for cigarettes. When parking pull the drawer to the front, its hided during driving.
 
-![Front view](pictures/carDisplayTray_front01.png "carDisplayTray_front01" width=400px)
-![Back view](pictures/carDisplayTray_back01.png "carDisplayTray_back01" width=400px)
+![Front view](pictures/carDisplayTray_front01.png "carDisplayTray_front01" width=400)
+![Back view](pictures/carDisplayTray_back01.png "carDisplayTray_back01" width=400)
 
 Software for cad construction: OpenSCAD 2015.03
 - [https://openscad.org](https://openscad.org)
@@ -95,7 +95,7 @@ Parameters for the section 'hole':
 
 The goal is to create a complex shape with rounded edges. Therefore the Minkowski-function is used. It uses a circle and goes around the shape, all in 2D. The edges are rounded but therefore the shape gets bigger by the radius of the circle.
 
-![Use of the Minkowski-function](https://lucid.app/publicSegments/view/ffb4a4e9-ca06-4040-a4ad-bed78eb1dca3/image.png "Overview round edges" width=400px)
+![Use of the Minkowski-function](https://lucid.app/publicSegments/view/ffb4a4e9-ca06-4040-a4ad-bed78eb1dca3/image.png "Overview round edges" width=400)
 
 One way is to use the Resize-function to scale the shape down. But in this scope it is not working sufficient, the result is distorted a little bit. To improve the result where the shape keeps its original dimensions the coordinates of every single point have to be adjusted before the use of the Minkowski-function.
 
@@ -109,7 +109,7 @@ Only the radius of the circle for the rounded edges has to be add or substituted
 
 This problem is a little bit more complicated. The example describes the solution for point 4. But it is the same way for point 2. In both cases the distance $dy$ is the goal to achieve.
 
-![Point 4: Calculate $dy$](https://lucid.app/publicSegments/view/4cc5a863-c1d5-4d18-a564-80384627b660/image.png "Point 4" width=600px)
+![Point 4: Calculate $dy$](https://lucid.app/publicSegments/view/4cc5a863-c1d5-4d18-a564-80384627b660/image.png "Point 4" width=600)
 
 First the angle $\gamma$ has to be calculated by the adjacent and opposite side of a right triangle:
 
@@ -133,7 +133,7 @@ $$dy = a - c$$
 
 In this case the circle has to be moved in two directions to fit to the shape. But only one distance is needed to calculate the values $dy$ and $dz$.
 
-![Point 3: Calculate $dy$ and $dz$](https://lucid.app/publicSegments/view/59a92d40-8ea4-4538-bf2f-7bab815a4b63/image.png "Point 3" width=400px)
+![Point 3: Calculate $dy$ and $dz$](https://lucid.app/publicSegments/view/59a92d40-8ea4-4538-bf2f-7bab815a4b63/image.png "Point 3" width=400)
 
 To solve this problem the angle $\beta$ has to be calculated. Therefore the already calculated angles $\alpha$ and $\gamma$ are used:
 
