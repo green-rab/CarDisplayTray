@@ -28,12 +28,22 @@ Version history:
 ## Parameters ##
 
 Description of used parameters in the script.
-
-General parameters:
-
-| Name               | Description                                     |
-| ------------------ | ----------------------------------------------- |
-| _fn                | Resolution of rounded edges                     |
+                      |
+<details>
+<summary>General parameters</summary>
+<br>
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>_fn</td>
+		<td>Resolution of rounded edges</td>
+	</tr>
+</table>
+<br>
+</details>
 
 <details>
 <summary>Parameters for the section 'frame'</summary>
@@ -107,42 +117,129 @@ General parameters:
 <br>
 </details>
 
-Parameters for the section 'board':
+<details>
+<summary>Parameters for the section 'board'</summary>
+<br>
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>bd_pos_x1</td>
+		<td>Left position in x-dimension</td>
+	</tr>
+	<tr>
+		<td>bd_pos_x2</td>
+		<td>Right position in x-dimension</td>
+	</tr>
+	<tr>
+		<td>bd_pt1_pos_y</td>
+		<td>Point 1 position in y-dimension</td>
+	</tr>
+	<tr>
+		<td>bd_pt1_pos_z</td>
+		<td>Point 1 position in z-dimension</td>
+	</tr>
+	<tr>
+		<td>bd_pt2_pos_y</td>
+		<td>Point 2 position in y-dimension</td>
+	</tr>
+	<tr>
+		<td>bd_pt2_pos_z</td>
+		<td>Point 2 position in z-dimension</td>
+	</tr>
+	<tr>
+		<td>bd_pt3_pos_y</td>
+		<td>Point 3 position in y-dimension</td>
+	</tr>
+	<tr>
+		<td>bd_pt3_pos_z</td>
+		<td>Point 3 position in z-dimension</td>
+	</tr>
+	<tr>
+		<td>bd_pt4_pos_y</td>
+		<td>Point 4 position in y-dimension</td>
+	</tr>
+	<tr>
+		<td>bd_pt4_pos_z</td>
+		<td>Point 4 position in z-dimension</td>
+	</tr>
+	<tr>
+		<td>bd_pt5_pos_y</td>
+		<td>Point 5 position in y-dimension</td>
+	</tr>
+	<tr>
+		<td>bd_pt5_pos_z</td>
+		<td>Point 5 position in z-dimension</td>
+	</tr>
+	<tr>
+		<td>bd_edge_r</td>
+		<td>Radius of the rounded edges</td>
+	</tr>
+</table>
+<br>
+</details>
 
-| Name               | Description                                     |
-| ------------------ | ----------------------------------------------- |
-| bd_pos_x1          | Left position in x-dimension                    |
-| bd_pos_x2          | Right position in x-dimension                   |
-| bd_pt1_pos_y       | Point 1 position in y-dimension                 |
-| bd_pt1_pos_z       | Point 1 position in z-dimension                 |
-| bd_pt2_pos_y       | Point 2 position in y-dimension                 |
-| bd_pt2_pos_z       | Point 2 position in z-dimension                 |
-| bd_pt3_pos_y       | Point 3 position in y-dimension                 |
-| bd_pt3_pos_z       | Point 3 position in z-dimension                 |
-| bd_pt4_pos_y       | Point 4 position in y-dimension                 |
-| bd_pt4_pos_z       | Point 4 position in z-dimension                 |
-| bd_pt5_pos_y       | Point 5 position in y-dimension                 |
-| bd_pt5_pos_z       | Point 5 position in z-dimension                 |
-| bd_edge_r          | Radius of the rounded edges                     |
+<details>
+<summary>Parameters for the section 'slot'</summary>
+<br>
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>st_delta_x</td>
+		<td>Tolerance for slot in x-dimension</td>
+	</tr>
+	<tr>
+		<td>st_delta_y</td>
+		<td>Tolerance for slot in y-dimension</td>
+	</tr>
+	<tr>
+		<td>st_pos_x1</td>
+		<td>Left position of slot for fixation in channel</td>
+	</tr>
+	<tr>
+		<td>st_pos_x2</td>
+		<td>Right position of slot for fixation in channel</td>
+	</tr>
+	<tr>
+		<td>st_pos_y1</td>
+		<td>Front position of slot for fixation in channel</td>
+	</tr>
+	<tr>
+		<td>st_pos_y2</td>
+		<td>Back position of slot for fixation in channel</td>
+	</tr>
+	<tr>
+		<td>st_bar_dim_z</td>
+		<td>z-dimension of the bar to connect the fixation</td>
+	</tr>
+</table>
+<br>
+</details>
 
-Parameters for the section 'slot':
-
-| Name               | Description                                     |
-| ------------------ | ----------------------------------------------- |
-| st_delta_x         | Tolerance for slot in x-dimension               |
-| st_delta_y         | Tolerance for slot in y-dimension               |
-| st_pos_x1          | Left position of slot for fixation in channel   |
-| st_pos_x2          | Right position of slot for fixation in channel  |
-| st_pos_y1          | Front position of slot for fixation in channel  |
-| st_pos_y2          | Back position of slot for fixation in channel   |
-| st_bar_dim_z       | z-dimension of the bar to connect the fixation  |
-
-Parameters for the section 'hole':
-
-| Name               | Description                                     |
-| ------------------ | ----------------------------------------------- |
-| hl_connector_d     | Diameter for hole for connector and wire        |
-| hl_connector_dim_x | x-dimension for hole cutting off the board      |
+<details>
+<summary>Parameters for the section 'hole'</summary>
+<br>
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>hl_connector_d</td>
+		<td>Diameter for hole for connector and wire</td>
+	</tr>
+	<tr>
+		<td>hl_connector_dim_x</td>
+		<td>x-dimension for hole cutting off the board</td>
+	</tr>
+</table>
+<br>
+</details>
 
 <a name="howToRoundedEdges"></a>
 ## HowTo - Resize objects with rounded edges ##
