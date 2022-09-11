@@ -1,6 +1,6 @@
 # Car Display Tray #
 
-[[Overview](#overview)] [[Parameters](#parameters)] [[HowTo rounded edges](#howToRoundedEdges)]
+[[Overview](#overview)] [[Parameters](#parameters)] [[HowTo - Resize objects with rounded edges](#howToRoundedEdges)]
 
 Designed for a BMW 520i from 1990. Integrates a display for a rear view camera and replaces the original drawer for cigarettes. When parking pull the drawer to the front, its hided during driving.
 
@@ -21,11 +21,13 @@ Files of the script:
 Version history:
 
 | Version | New features                   | Resolved bugs |
-| ------- | ------------------------------ | ------------- |
-| v0.1    | first version for initial test | -             |
+| :-----: | :----------------------------- | :------------ |
+| v0.1    | first version for initial test | none          |
 
 <a name="parameters"></a>
-## Parameters of the script ##
+## Parameters ##
+
+Description of used parameters in the script.
 
 General parameters:
 
@@ -33,25 +35,77 @@ General parameters:
 | ------------------ | ----------------------------------------------- |
 | _fn                | Resolution of rounded edges                     |
 
-Parameters for the section 'frame':
-
-| Name               | Description                                     |
-| ------------------ | ----------------------------------------------- |
-| fr_dim_x           | x-dimension outer edge                          |
-| fr_delta_y         | Additional expansion for display in y-dimension |
-| fr_dim_y1          | y-dimension outer edge left side                |
-| fr_dim_y2          | y-dimension outer edge right side               |
-| fr_dim_z           | z-dimension outer edge                          |
-| fr_edge_r          | Radius of the rounded edges                     |
-| fr_display_dim_x   | x-dimension of display                          |
-| fr_display_dim_y   | y-dimension of display                          |
-| fr_display_delta_z | Distance display from the bottom                |
-| fr_rail_delta_x    | Additional expansion for rail in x-dimension    |
-| fr_rail_pos_x1     | Left position of rail for locking channel       |
-| fr_rail_pos_x1     | Right position of rail for locking channel      |
-| fr_rail_dim_z      | z-dimension of rail                             |
-| fr_feet_dim_x      | x-dimension for feet for display at the side    |
-| fr_feet_dim_z      | z-dimension for feet for display at the side    |
+<details>
+<summary>Parameters for the section 'frame'</summary>
+<br>
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>fr_dim_x</td>
+		<td>x-dimension outer edge</td>
+	</tr>
+	<tr>
+		<td>fr_delta_y</td>
+		<td>Additional expansion for display in y-dimension</td>
+	</tr>
+	<tr>
+		<td>fr_dim_y1</td>
+		<td>y-dimension outer edge left side</td>
+	</tr>
+	<tr>
+		<td>fr_dim_y2</td>
+		<td>y-dimension outer edge right side</td>
+	</tr>
+	<tr>
+		<td>fr_dim_z</td>
+		<td>z-dimension outer edge</td>
+	</tr>
+	<tr>
+		<td>fr_edge_r</td>
+		<td>Radius of the rounded edges</td>
+	</tr>
+	<tr>
+		<td>fr_display_dim_x</td>
+		<td>x-dimension of display</td>
+	</tr>
+	<tr>
+		<td>fr_display_dim_y</td>
+		<td>y-dimension of display</td>
+	</tr>
+	<tr>
+		<td>fr_display_delta_z</td>
+		<td>Distance display from the bottom</td>
+	</tr>
+	<tr>
+		<td>fr_rail_delta_x</td>
+		<td>Additional expansion for rail in x-dimension</td>
+	</tr>
+	<tr>
+		<td>fr_rail_pos_x1</td>
+		<td>Left position of rail for locking channel</td>
+	</tr>
+	<tr>
+		<td>fr_rail_pos_x2</td>
+		<td>Right position of rail for locking channel</td>
+	</tr>
+	<tr>
+		<td>fr_rail_dim_z</td>
+		<td>z-dimension of rail</td>
+	</tr>
+	<tr>
+		<td>fr_feet_dim_x</td>
+		<td>x-dimension for feet for display at the side</td>
+	</tr>
+	<tr>
+		<td>fr_feet_dim_z</td>
+		<td>z-dimension for feet for display at the side</td>
+	</tr>
+</table>
+<br>
+</details>
 
 Parameters for the section 'board':
 
