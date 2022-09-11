@@ -2,7 +2,7 @@
 
 [[Overview](#overview)] [[Parameters](#parameters)] [[HowTo - Resize objects with rounded edges](#howToRoundedEdges)]
 
-Designed for a BMW 520i from 1990. Integrates a display for a rear view camera and replaces the original drawer for cigarettes. When parking pull the drawer to the front, its hided during driving.
+Designed for a BMW 520i from 1990. Integrates a display for a rear view camera by replacing the original drawer for cigarettes. When parking you have to pull the tray to the front. During driving the display is hided in the center console of the car.
 
 ![Front view](pictures/carDisplayTray_front01.png "carDisplayTray_front01")
 ![Back view](pictures/carDisplayTray_back01.png "carDisplayTray_back01")
@@ -28,7 +28,7 @@ Version history:
 ## Parameters ##
 
 Description of used parameters in the script.
-                      |
+
 <details>
 <summary>General parameters</summary>
 <br>
