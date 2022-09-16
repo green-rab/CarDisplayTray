@@ -1,12 +1,8 @@
 # Car Display Tray #
 
-[[Overview](#overview)] [[Parameters](#parameters)] [[HowTo - Resize objects with rounded edges](#howToRoundedEdges)]
+[[Overview](#overview)] [[Parameters](#parameters)] [[Result in action](#result)] [[HowTo - Resize4Rounding](#howToRounding)]
 
-It is designed for a BMW 520i from 1990 and integrates a display for a rear view camera by replacing the original drawer for cigarettes. During parking you have to pull the tray to you for watching the display for the camera. During driving the display is hiden in the center console of the car.
-
-| Rendered front view | ... and back view of the tray |
-| :-----------------: | :---------------------------: |
-| ![](pictures/carDisplayTray_front01.png) | ![](pictures/carDisplayTray_back01.png) |
+The 3D-model is designed for a BMW 520i from 1990 and integrates a display for a rear view camera by replacing the original drawer for cigarettes. During parking you have to pull the tray to you for watching the display for the camera in the back. During driving the display is hidden in the center console of the car.
 
 Software for cad construction: OpenSCAD 2015.03
 - [https://openscad.org](https://openscad.org)
@@ -14,6 +10,10 @@ Software for cad construction: OpenSCAD 2015.03
 
 <a name="overview"></a>
 ## Overview ##
+
+| Rendered front view | ... and back view of the tray |
+| :-----------------: | :---------------------------: |
+| ![](pictures/carDisplayTray_front01.png) | ![](pictures/carDisplayTray_back01.png) |
 
 Files of the script:
 
@@ -51,7 +51,7 @@ Description of used parameters in the script.
 </details>
 
 <details>
-<summary>Parameters for the section 'frame'</summary>
+<summary>Parameters for the part 'frame'</summary>
 <br>
 <table>
 	<tr>
@@ -123,7 +123,7 @@ Description of used parameters in the script.
 </details>
 
 <details>
-<summary>Parameters for the section 'board'</summary>
+<summary>Parameters for the part 'board'</summary>
 <br>
 <table>
 	<tr>
@@ -187,7 +187,7 @@ Description of used parameters in the script.
 </details>
 
 <details>
-<summary>Parameters for the section 'slot'</summary>
+<summary>Parameters for the part 'slot'</summary>
 <br>
 <table>
 	<tr>
@@ -227,7 +227,7 @@ Description of used parameters in the script.
 </details>
 
 <details>
-<summary>Parameters for the section 'hole'</summary>
+<summary>Parameters for the part 'hole'</summary>
 <br>
 <table>
 	<tr>
@@ -246,10 +246,19 @@ Description of used parameters in the script.
 <br>
 </details>
 
-<a name="howToRoundedEdges"></a>
-## HowTo - Resize object for rounded edges ##
+<a name="result"></a>
+## Result in action
+
+tbd
+
+<a name="howToRounding"></a>
+## HowTo - Resize4Rounding ##
 
 The goal is to create a complex shape with rounded edges. Therefore the Minkowski-function is used. It uses a circle and goes around the shape, all in 2D. The edges are rounded but therefore the shape gets bigger by the radius of the circle.
+
+![](pictures/carDisplayTray_howTo_overview.png)
+
+![](pictures/carDisplayTray_howTo_overviewT.png)
 
 ![Use of the Minkowski-function](https://lucid.app/publicSegments/view/ffb4a4e9-ca06-4040-a4ad-bed78eb1dca3/image.png "Overview rounded edges")
 
