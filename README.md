@@ -2,10 +2,11 @@
 
 [[Overview](#overview)] [[Parameters](#parameters)] [[HowTo - Resize objects with rounded edges](#howToRoundedEdges)]
 
-Designed for a BMW 520i from 1990. Integrates a display for a rear view camera by replacing the original drawer for cigarettes. When parking you have to pull the tray to the front. During driving the display is hided in the center console of the car.
+It is designed for a BMW 520i from 1990 and integrates a display for a rear view camera by replacing the original drawer for cigarettes. During parking you have to pull the tray to you for watching the display for the camera. During driving the display is hiden in the center console of the car.
 
-![Front view](pictures/carDisplayTray_front01.png "carDisplayTray_front01")
-![Back view](pictures/carDisplayTray_back01.png "carDisplayTray_back01")
+| Rendered front view | ... and back view of the tray |
+| :-----------------: | :---------------------------: |
+| ![](pictures/carDisplayTray_front01.png) | ![](pictures/carDisplayTray_back01.png) |
 
 Software for cad construction: OpenSCAD 2015.03
 - [https://openscad.org](https://openscad.org)
@@ -28,6 +29,10 @@ Version history:
 ## Parameters ##
 
 Description of used parameters in the script.
+
+| frame | board | slot | hole |
+| :---: | :---: | :--: | :--: |
+| ![](pictures/carDisplayTray_partFrame01.png) | ![](pictures/carDisplayTray_partBoard01.png) | ![](pictures/carDisplayTray_partSlot01.png) | ![](pictures/carDisplayTray_partHole01.png) |
 
 <details>
 <summary>General parameters</summary>
@@ -242,7 +247,7 @@ Description of used parameters in the script.
 </details>
 
 <a name="howToRoundedEdges"></a>
-## HowTo - Resize objects with rounded edges ##
+## HowTo - Resize object for rounded edges ##
 
 The goal is to create a complex shape with rounded edges. Therefore the Minkowski-function is used. It uses a circle and goes around the shape, all in 2D. The edges are rounded but therefore the shape gets bigger by the radius of the circle.
 
