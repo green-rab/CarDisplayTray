@@ -1,6 +1,6 @@
 # Car Display Tray #
 
-[[Overview](#overview)] [[Parameters](#parameters)] [[Result in action](#result)] [[HowTo - Resize4Rounding](#howToRounding)]
+[[Overview](#overview)] [[Parameters](#parameters)] [[Result](#result)] [[HowTo - Resize4Rounding](#howToRounding)]
 
 The 3D-model is designed for a BMW 520i from 1990 and integrates a display for a rear view camera by replacing the original drawer for cigarettes. During parking you have to pull the tray to you for watching the display for the camera in the back. During driving the display is hidden in the center console of the car.
 
@@ -247,58 +247,57 @@ Description of used parameters in the script.
 </details>
 
 <a name="result"></a>
-## Result in action
+## Result
 
 tbd
 
 <a name="howToRounding"></a>
 ## HowTo - Resize4Rounding ##
 
-The goal is to create a complex shape with rounded edges. Therefore the Minkowski-function is used. It uses a circle and goes around the shape, all in 2D. The edges are rounded but therefore the shape gets bigger by the radius of the circle.
+The goal is to create a complex shape with rounded edges. Therefore the Minkowski-function is used that rotates a circle around the whole shape. The radius of the circle is then the rounding of the single edges, all in 2D. The problem that has to be solved is that the center of the circle is exactly on the contour of the shat that depends that the result shape is larger than the original one.
 
-![](pictures/carDisplayTray_howTo_overview.png)
+One way is to use the implemented Resize-function to scale the shape down before or after the use of the Minkowski-function. But for this problem it is not working sufficient. After resizing the shape is distorted a little bit.
 
-![](pictures/carDisplayTray_howTo_overviewT.png)
+To improve the result where the shape keeps its original dimensions the coordinates of every single point has to be adjusted before the use of the Minkowski-function. So the shape is manually scaled down before the use of the Minkowski-function to get the shape with its desired dimension after using it.
 
-![Use of the Minkowski-function](https://lucid.app/publicSegments/view/ffb4a4e9-ca06-4040-a4ad-bed78eb1dca3/image.png "Overview rounded edges")
+![Overview of single points that have to be calculated for the board](pictures/carDisplayTray_howTo_overview.png)
 
-One way is to use the Resize-function to scale the shape down. But in this scope it is not working sufficient, the result is distorted a little bit. To improve the result where the shape keeps its original dimensions the coordinates of every single point have to be adjusted before the use of the Minkowski-function.
 
-Single steps for trigonometric calculation are explained below.
+The single steps for trigonometric calculation are explained below.
 
-### Point 1 and 5: Lower and upper right edge ###
+### Point 1 and 5 ###
 
-Only the radius of the circle for the rounded edges has to be add or substituted from the coordinates of the single points.
+For the first points only the radius of the circle has to be added or substituted to the coordinates. That's easy.
 
-### Point 2 and 4: Lower and upper left edge ###
+### Point 2 and 4 - calculate delta dy ###
 
-This problem is a little bit more complicated. The example describes the solution for point 4. But it is the same way for point 2. In both cases the distance $dy$ is the goal to achieve.
+This problem is a little bit more complicated. The example describes the solution for point 4 and it is the same way for point 2. In both cases the distance $dy$ is the goal to achieve that is the difference in y-direction that has to be added to the coordinate of the edge.
 
-![Point 4: Calculate dy](https://lucid.app/publicSegments/view/4cc5a863-c1d5-4d18-a564-80384627b660/image.png "Point 4")
+![](pictures/carDisplayTray_howto_point4.png)
 
 First the angle $\gamma$ has to be calculated by the adjacent and opposite side of a right triangle:
 
 $$\gamma = atan[(y_{pt4} - y_{pt3}) / (z_{pt4} - z_{pt3})]$$
 
-The marked point on the circle has to fit the shape. There is a right angle crossing the shape from the center of the circle to its border with the length $edge_r$. Because of the right angle the angle $\gamma$ is the same and the distance $a$ is als follows:
+The marked point on the circle has to fit the shape. There is a right angle crossing the shape from the center of the circle to its border with the length $r_edge$. Because of the right angle the angle $\gamma$ is the same and the distance $a$ is als follows:
 
-$$a = cos(\gamma) * edge_r$$
+$$a = cos(\gamma) * r_edge$$
 
-Next the distance $b$ on the z-axis to the center point has to be calculated. The subtraction by the radius $edge_r$ let to the opposite $c$ of the right triangle on the top:
+Next the distance $b$ on the z-axis to the center point has to be calculated. The subtraction by the radius $r_edge$ let to the opposite $c$ of the right triangle on the top:
 
-$$b = sin(\gamma) * edge_r$$
+$$b = sin(\gamma) * r_edge$$
 
-$$c = sin(\gamma) * (edge_r - b)$$
+$$c = sin(\gamma) * (r_edge - b)$$
 
 The final value $dy$ can now be calculated the subtraction of the values $a$ and $c$:
 
 $$dy = a - c$$
 
-### Point 3: Middle left edge ###
+### Point 3 - calculate delta dy and dz ###
 
 In this case the circle has to be moved in two directions to fit to the shape. But only one distance is needed to calculate the values $dy$ and $dz$.
 
-![Point 3: Calculate dy and dz](https://lucid.app/publicSegments/view/59a92d40-8ea4-4538-bf2f-7bab815a4b63/image.png "Point 3")
+![](pictures/carDisplayTray_howto_point3.png)
 
 To solve this problem the angle $\beta$ has to be calculated. Therefore the already calculated angles $\alpha$ and $\gamma$ are used:
 
@@ -306,7 +305,7 @@ $$\beta = 180° - \alpha - \gamma$$
 
 With the angle $\beta$ the distance $a$ from the edge of the shape to the center of the circle is calculated:
 
-$$a = edge_r / sin(\beta / 2)$$
+$$a = r_edge / sin(\beta / 2)$$
 
 In the next step the angle $\delta$ is calculated as the angle of the line $a$ to the horizontal line or the y-axis illustrated by $dy$:
 
