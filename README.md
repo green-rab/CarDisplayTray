@@ -307,7 +307,7 @@ In this case the circle has to be moved in two directions to fit to the shape wh
 
 ![Calculate delta dy and dz](pictures/carDisplayTray_howto_point3.png)
 
-To solve this problem the angle $\beta$ has to be calculated. Therefore the already calculated angles $\alpha$ and $\gamma$ are used:
+To solve this problem the angle $\beta$ has to be calculated. Therefore the already calculated angles $\alpha$ and $\gamma$ are used. The angle $\alpha$ is calculated in the same way as the angle $\gamma$ but for the point 2 instead of point 4 as described in the section above:
 
 $$\beta = 180° - \alpha - \gamma$$
 
