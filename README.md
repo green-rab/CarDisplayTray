@@ -249,70 +249,78 @@ Description of used parameters in the script.
 <a name="result"></a>
 ## Result
 
+### v0.1
+
 tbd
 
 <a name="howToRounding"></a>
 ## HowTo - Resize4Rounding ##
 
-The goal is to create a complex shape with rounded edges. Therefore the Minkowski-function is used that rotates a circle around the whole shape. The radius of the circle is then the rounding of the single edges, all in 2D. The problem that has to be solved is that the center of the circle is exactly on the contour of the shat that depends that the result shape is larger than the original one.
+The goal is to create a complex shape with rounded edges. Therefore the Minkowski-function is used that rotates a circle around the whole shape. The radius of the circle is then the rounding of the single edges, all done in 2D scope. The problem that has to be solved is that the center of the circle is exactly on the contour of the shape that is responsible for that the resulting shape is larger than the original one.
 
-One way is to use the implemented Resize-function to scale the shape down before or after the use of the Minkowski-function. But for this problem it is not working sufficient. After resizing the shape is distorted a little bit.
+One way is to use the implemented Resize-function to scale the shape down before or after the use of the Minkowski-function. But for this shape it is not working sufficient. After resizing the shape is distorted a little bit.
 
-To improve the result where the shape keeps its original dimensions the coordinates of every single point has to be adjusted before the use of the Minkowski-function. So the shape is manually scaled down before the use of the Minkowski-function to get the shape with its desired dimension after using it.
+To improve the result where the shape keeps its original dimensions the coordinates of every single point has to be adjusted before the use of the Minkowski-function. So the shape is manually scaled down before to get the shape with its desired dimension after the function is executed.
 
 ![Overview of single points that have to be calculated for the board](pictures/carDisplayTray_howTo_overview.png)
-
 
 The single steps for trigonometric calculation are explained below.
 
 ### Point 1 and 5 ###
 
-For the first points only the radius of the circle has to be added or substituted to the coordinates. That's easy.
+For the first points only the radius of the circle has to be added or substituted to the coordinates:
 
-### Point 2 and 4 - calculate delta dy ###
+$$\underline{dy = \pm r_{edge}}$$
 
-This problem is a little bit more complicated. The example describes the solution for point 4 and it is the same way for point 2. In both cases the distance $dy$ is the goal to achieve that is the difference in y-direction that has to be added to the coordinate of the edge.
+$$\underline{dz = \pm r_{edge}}$$
 
-![](pictures/carDisplayTray_howto_point4.png)
+### Point 2 and 4 - Calculate delta dy ###
 
-First the angle $\gamma$ has to be calculated by the adjacent and opposite side of a right triangle:
+This problem is a little bit more complicated. The example describes the solution for point 4 but it is the same way for point 2, too. In both cases the distance $dy$ is the goal to achieve that is the difference in y-direction that has to be added to the coordinate of the edge. The distance $dz$ is the radius $r_{edge}$ as for point 1 and 5, too.
+
+![Point 4 - Calculate delta dy](pictures/carDisplayTray_howto_point4.png)
+
+First the angle $\gamma$ on the right has to be calculated by the adjacent and opposite side of the right triangle:
 
 $$\gamma = atan[(y_{pt4} - y_{pt3}) / (z_{pt4} - z_{pt3})]$$
 
-The marked point on the circle has to fit the shape. There is a right angle crossing the shape from the center of the circle to its border with the length $r_edge$. Because of the right angle the angle $\gamma$ is the same and the distance $a$ is als follows:
+The red marked point on the circle has to fit the shape. There is a right angle crossing the shape from the center of the circle to that border. Because of the right angle the angle $\gamma$ is between the line to the center and the vertical line, too. By using the angle $\gamma$ the distance $a$ can be calculated as follows:
 
-$$a = cos(\gamma) * r_edge$$
+$$a = cos(\gamma) * r_{edge}$$
 
-Next the distance $b$ on the z-axis to the center point has to be calculated. The subtraction by the radius $r_edge$ let to the opposite $c$ of the right triangle on the top:
+Next step is to calculate the distance $b$ on the z-axis to the center point. The subtraction of the radius $r_{edge}$ by the distance $b$ let to the distance
+$c$ in the right triangle including the angle $\gamma$:
 
-$$b = sin(\gamma) * r_edge$$
+$$b = sin(\gamma) * r_{edge}$$
 
-$$c = sin(\gamma) * (r_edge - b)$$
+$$c = sin(\gamma) * (r_{edge} - b)$$
 
-The final value $dy$ can now be calculated the subtraction of the values $a$ and $c$:
+Now the final value $dy$ can be calculated by the subtraction of the values $a$ and $c$. The distance $dz$ is only the radius for the edge as before:
 
-$$dy = a - c$$
+$$\underline{dy = a - c}$$
 
-### Point 3 - calculate delta dy and dz ###
+$$\underline{dz = \pm r_{edge}}$$
 
-In this case the circle has to be moved in two directions to fit to the shape. But only one distance is needed to calculate the values $dy$ and $dz$.
+### Point 3 - Calculate delta dy and dz ###
 
-![](pictures/carDisplayTray_howto_point3.png)
+In this case the circle has to be moved in two directions to fit to the shape where no direction is only the radius $r_{edge}$.
+
+![Calculate delta dy and dz](pictures/carDisplayTray_howto_point3.png)
 
 To solve this problem the angle $\beta$ has to be calculated. Therefore the already calculated angles $\alpha$ and $\gamma$ are used:
 
 $$\beta = 180° - \alpha - \gamma$$
 
-With the angle $\beta$ the distance $a$ from the edge of the shape to the center of the circle is calculated:
+The distance $a$ from the edge of the shape to the center of the circle is calculated by the use of the angle $\beta$:
 
-$$a = r_edge / sin(\beta / 2)$$
+$$a = r_{edge} / sin(\beta / 2)$$
 
-In the next step the angle $\delta$ is calculated as the angle of the line $a$ to the horizontal line or the y-axis illustrated by $dy$:
+In the next step the angle $\delta$ is calculated between the line $a$ and the horizontal line or the y-axis illustrated by the distance $dy$:
 
 $$\delta = \gamma + (\beta/2) - 90°$$
 
-The final step is to calculate the delta values $dy$ and $dz$ for both axes with the calculated distance $a$ and the angle $\delta$:
+The final step is to calculate the delta values $dy$ and $dz$ for both axes with the calculated distance $a$ and the angle $\delta$ before:
 
-$$dy = cos(\delta) * a$$
+$$\underline{dy = cos(\delta) * a}$$
 
-$$dz = sin(\delta) * a$$
+$$\underline{dz = sin(\delta) * a}$$
