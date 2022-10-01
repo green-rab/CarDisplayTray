@@ -103,8 +103,8 @@ _Remark: Pictures for illustration of the sections are based on version v0.1_
 <details>
 <summary>General parameters</summary>
 <br>
-<table align="left">
-	<tr>
+<table>
+	<tr align="left">
 		<th>Name</th>
 		<th>Description</th>
 	</tr>
