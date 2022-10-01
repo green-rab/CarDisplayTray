@@ -59,12 +59,6 @@ Result of the rendered script for each version.
 </table>
 </details>
 
-<details>
-```
-| Test1 | Test2 |
-```
-</details>
-
 <a name="parameters"></a>
 ## Parameters ##
 
@@ -85,12 +79,6 @@ Description of the used parameters in the script.
 		<th><img src="pictures/carDisplayTray_partHole_v0-1.png"></th>
 	</tr>
 </table>
-
-TEST
-
-| frame | board | slot | hole |
-| :---: | :---: | :--: | :--: |
-| ![](pictures/carDisplayTray_partFrame_v0-1.png) | ![](pictures/carDisplayTray_partBoard_v0-1.png) | ![](pictures/carDisplayTray_partSlot_v0-1.png) | ![](pictures/carDisplayTray_partHole_v0-1.png) |
 
 _Remark: Pictures for illustration of the sections are based on version v0.1_
 
