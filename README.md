@@ -22,14 +22,14 @@ Version history:
 <table>
 	<tr>
 		<th align="center">Version</th>
-		<th>New features</th>
-		<th>Resolved bugs</th>
+		<th align="left">New features</th>
+		<th align="left">Resolved bugs</th>
 	</tr>
 	<tr></tr>
 	<tr>
 		<td align="center">v0.2</td>
-		<td>-</td>
-		<td>
+		<td align="left">-</td>
+		<td align="left">
 			<li>frame x- and z-dimension adapted</li>
 			<li>added bevel for frame</li>
 		</td>
@@ -37,8 +37,8 @@ Version history:
 	<tr></tr>
 	<tr>
 		<td align="center">v0.1</td>
-		<td>first version for initial test</td>
-		<td>-</td>
+		<td align="left">first version for initial test</td>
+		<td align="left">-</td>
 	</tr>
 </table>
 
@@ -51,8 +51,8 @@ Result of the rendered script for each version.
 <summary>v0.2</summary>
 <table>
 	<tr>
-		<th>Rendered front view</th>
-		<th>... and back view of the tray</th>
+		<th align="left">Rendered front view</th>
+		<th align="left">... and back view of the tray</th>
 	</tr>
 	<tr></tr>
 	<tr>
@@ -66,8 +66,8 @@ Result of the rendered script for each version.
 <summary>v0.1</summary>
 <table>
 	<tr>
-		<th>Rendered front view</th>
-		<th>... and back view of the tray</th>
+		<th align="left">Rendered front view</th>
+		<th align="left">... and back view of the tray</th>
 	</tr>
 	<tr></tr>
 	<tr>
@@ -103,7 +103,7 @@ _Remark: Pictures for illustration of the sections are based on version v0.1_
 <details>
 <summary>General parameters</summary>
 <br>
-<table>
+<table align="left">
 	<tr>
 		<th>Name</th>
 		<th>Description</th>
@@ -119,7 +119,7 @@ _Remark: Pictures for illustration of the sections are based on version v0.1_
 <details>
 <summary>Parameters for the part 'frame'</summary>
 <br>
-<table>
+<table align="left">
 	<tr>
 		<th>Name</th>
 		<th>Description</th>
@@ -199,7 +199,7 @@ _Remark: Pictures for illustration of the sections are based on version v0.1_
 <details>
 <summary>Parameters for the part 'board'</summary>
 <br>
-<table>
+<table align="left">
 	<tr>
 		<th>Name</th>
 		<th>Description</th>
@@ -263,7 +263,7 @@ _Remark: Pictures for illustration of the sections are based on version v0.1_
 <details>
 <summary>Parameters for the part 'slot'</summary>
 <br>
-<table>
+<table align="left">
 	<tr>
 		<th>Name</th>
 		<th>Description</th>
@@ -303,7 +303,7 @@ _Remark: Pictures for illustration of the sections are based on version v0.1_
 <details>
 <summary>Parameters for the part 'hole'</summary>
 <br>
-<table>
+<table align="left">
 	<tr>
 		<th>Name</th>
 		<th>Description</th>
