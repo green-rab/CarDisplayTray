@@ -31,7 +31,7 @@ Result of the rendered script for each version.
 
 <details open>
 <summary>v0.2</summary>
-<table>
+<table style="background-color:rgba(0, 0, 0, 0);>
 	<tr>
 		<th>Rendered front view</th>
 		<th>... and back view of the tray</th>
@@ -56,12 +56,6 @@ Result of the rendered script for each version.
 	</tr>
 </table>
 </details>
-
-Test
-
-| Rendered front view | ... and back view of the tray |
-| :-----------------: | :---------------------------: |
-| ![](pictures/carDisplayTray_front_v0-1.png) | ![](pictures/carDisplayTray_back_v0-1.png) |
 
 <a name="parameters"></a>
 ## Parameters ##
