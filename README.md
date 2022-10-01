@@ -113,6 +113,7 @@ _Remark: Pictures for illustration of the sections are based on version v0.1_
 		<td>Resolution of rounded edges</td>
 	</tr>
 </table>
+<br>
 </details>
 
 <details>
