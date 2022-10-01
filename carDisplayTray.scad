@@ -15,18 +15,18 @@
 _fn                = 100;
 
 // fr - frame
-fr_dim_x           = 133.0 - 0.4; //mm - delta for v0.2
+fr_dim_x           = 133.0 - 0.4; //mm -> delta for v0.2
 
 fr_delta_y         =  14.0; //mm
 
-fr_dim_y1          =  68.0 + fr_delta_y; //mm
-fr_dim_y2          =  87.0 + fr_delta_y; //mm
-fr_dim_z           =  40.0 - 1.0; //mm ‚- delta for v0.2
+fr_dim_y1          =  68.0 + fr_delta_y; //mm ?????????????????????????????????
+fr_dim_y2          =  87.0 + fr_delta_y; //mm ?????????????????????????????????
+fr_dim_z           =  40.0 - 1.0; //mm -> delta for v0.2
 
 fr_edge_r          =   5.0; //mm
 
-fr_bevel_y         =  40.0; //mm new for v0.2
-fr_bevel_angle     =  10.0; //°  new for v0.2
+fr_bevel_y         =  38.0 - 2.0 + fr_delta_y; //mm -> new for v0.2
+fr_bevel_angle     =  12.0 + 5.0;              //° -> new for v0.2
 
 fr_display_dim_x   = 122.5; //mm
 fr_display_dim_y   =  78.0; //mm
