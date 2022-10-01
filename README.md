@@ -21,7 +21,6 @@ Version history:
 
 | Version | New features                   | Resolved bugs |
 | :-----: | :----------------------------- | :------------ |
-| v0.3    | -                              | -             |
 | v0.2    | -                              | $\circ$ frame x- and z-dimension adapted<br>$\circ$ added bevel for frame |
 | v0.1    | first version for initial test | -             |
 
@@ -37,6 +36,7 @@ Result of the rendered script for each version.
 		<th>Rendered front view</th>
 		<th>... and back view of the tray</th>
 	</tr>
+	<tr></tr>
 	<tr>
 		<td><img src="pictures/carDisplayTray_front_v0-2.png"></td>
 		<td><img src="pictures/carDisplayTray_back_v0-2.png"></td>
@@ -51,6 +51,7 @@ Result of the rendered script for each version.
 		<th>Rendered front view</th>
 		<th>... and back view of the tray</th>
 	</tr>
+	<tr></tr>
 	<tr>
 		<td><img src="pictures/carDisplayTray_front_v0-1.png"></td>
 		<td><img src="pictures/carDisplayTray_back_v0-1.png"></td>
@@ -76,6 +77,7 @@ Description of the used parameters in the script.
 		<th>slot</th>
 		<th>hole</th>
 	</tr>
+	<tr></tr>
 	<tr align="center">
 		<th><img src="pictures/carDisplayTray_partFrame_v0-1.png"></th>
 		<th><img src="pictures/carDisplayTray_partBoard_v0-1.png"></th>
