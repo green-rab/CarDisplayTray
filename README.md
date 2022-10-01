@@ -1,8 +1,10 @@
 # Car Display Tray #
 
-[[Overview](#overview)] [[Parameters](#parameters)] [[Result](#result)] [[HowTo - Resize4Rounding](#howToRounding)]
+[[Overview](#overview)] [[Rendering](#rendering)] [[Parameters](#parameters)] [[HowTo - Resize4Rounding](#howToRounding)]
 
-The 3D-model is designed for a BMW 520i from 1990 and integrates a display for a rear view camera by replacing the original drawer for cigarettes. During parking you have to pull the tray to you for watching the display for the camera in the back. During driving the display is hidden in the center console of the car.
+The 3D-model is designed for a BMW 520i from 1990 and integrates a display for a rear view camera by replacing the original drawer for cigarettes. During parking you have to pull the tray that allows you to watch the display for the camera in the back. During driving the display is hidden by pushing it back to the center console of the car.
+
+__< VIDEO TBD >__
 
 Software for cad construction: OpenSCAD 2015.03
 - [https://openscad.org](https://openscad.org)
@@ -10,10 +12,6 @@ Software for cad construction: OpenSCAD 2015.03
 
 <a name="overview"></a>
 ## Overview ##
-
-| Rendered front view | ... and back view of the tray |
-| :-----------------: | :---------------------------: |
-| ![](pictures/carDisplayTray_front01.png) | ![](pictures/carDisplayTray_back01.png) |
 
 Files of the script:
 
@@ -23,16 +21,58 @@ Version history:
 
 | Version | New features                   | Resolved bugs |
 | :-----: | :----------------------------- | :------------ |
-| v0.1    | first version for initial test | none          |
+| v0.2    | -                              | $\circ$ frame x- and z-dimension adapted<br>$\circ$ added bevel for frame |
+| v0.1    | first version for initial test | -             |
+
+<a name="rendering"></a>
+## Rendering
+
+Result of the rendered script for each version.
+
+<details open>
+<summary>v0.2</summary>
+<table>
+	<tr>
+		<th>Rendered front view</th>
+		<th>... and back view of the tray</th>
+	</tr>
+	<tr>
+		<td><img src="pictures/carDisplayTray_front_v0-2.png"></td>
+		<td><img src="pictures/carDisplayTray_back_v0-2.png"></td>
+	</tr>
+</table>
+</details>
+
+<details>
+<summary>v0.1</summary>
+<table>
+	<tr>
+		<th>Rendered front view</th>
+		<th>... and back view of the tray</th>
+	</tr>
+	<tr>
+		<td><img src="pictures/carDisplayTray_front_v0-1.png"></td>
+		<td><img src="pictures/carDisplayTray_back_v0-1.png"></td>
+	</tr>
+</table>
+</details>
+
+Test
+
+| Rendered front view | ... and back view of the tray |
+| :-----------------: | :---------------------------: |
+| ![](pictures/carDisplayTray_front_v0-1.png) | ![](pictures/carDisplayTray_back_v0-1.png) |
 
 <a name="parameters"></a>
 ## Parameters ##
 
-Description of used parameters in the script.
+Description of the used parameters in the script.
 
 | frame | board | slot | hole |
 | :---: | :---: | :--: | :--: |
-| ![](pictures/carDisplayTray_partFrame01.png) | ![](pictures/carDisplayTray_partBoard01.png) | ![](pictures/carDisplayTray_partSlot01.png) | ![](pictures/carDisplayTray_partHole01.png) |
+| ![](pictures/carDisplayTray_partFrame_v0-1.png) | ![](pictures/carDisplayTray_partBoard_v0-1.png) | ![](pictures/carDisplayTray_partSlot_v0-1.png) | ![](pictures/carDisplayTray_partHole_v0-1.png) |
+
+_Remark: Pictures for illustration of the sections are based on version v0.1_
 
 <details>
 <summary>General parameters</summary>
@@ -81,6 +121,14 @@ Description of used parameters in the script.
 	<tr>
 		<td>fr_edge_r</td>
 		<td>Radius of the rounded edges</td>
+	</tr>
+	<tr>
+		<td>fr_bevel_y</td>
+		<td>Start-position of the bevel in the back</td>
+	</tr>
+	<tr>
+		<td>fr_bevel_angel</td>
+		<td>Angle of the bevel (for slot of BMW)</td>
 	</tr>
 	<tr>
 		<td>fr_display_dim_x</td>
@@ -246,13 +294,6 @@ Description of used parameters in the script.
 <br>
 </details>
 
-<a name="result"></a>
-## Result
-
-### v0.1
-
-tbd
-
 <a name="howToRounding"></a>
 ## HowTo - Resize4Rounding ##
 
@@ -262,7 +303,7 @@ One way is to use the implemented Resize-function to scale the shape down before
 
 To improve the result where the shape keeps its original dimensions the coordinates of every single point has to be adjusted before the use of the Minkowski-function. So the shape is manually scaled down before to get the shape with its desired dimension after the function is executed.
 
-![Overview of single points that have to be calculated for the board](pictures/carDisplayTray_howTo_overview.png)
+![Overview of single points that have to be calculated for the board](pictures/carDisplayTray_howToOverview.png)
 
 The single steps for trigonometric calculation are explained below.
 
@@ -278,7 +319,7 @@ $$\underline{dz = \pm r_{edge}}$$
 
 This problem is a little bit more complicated. The example describes the solution for point 4 but it is the same way for point 2, too. In both cases the distance $dy$ is the goal to achieve that is the difference in y-direction that has to be added to the coordinate of the edge. The distance $dz$ is the radius $r_{edge}$ as for point 1 and 5, too.
 
-![Point 4 - Calculate delta dy](pictures/carDisplayTray_howto_point4.png)
+![Point 4 - Calculate delta dy](pictures/carDisplayTray_howtoPoint4.png)
 
 First the angle $\gamma$ on the right has to be calculated by the adjacent and opposite side of the right triangle:
 
@@ -305,7 +346,7 @@ $$\underline{dz = \pm r_{edge}}$$
 
 In this case the circle has to be moved in two directions to fit to the shape where no direction is only the radius $r_{edge}$.
 
-![Calculate delta dy and dz](pictures/carDisplayTray_howto_point3.png)
+![Calculate delta dy and dz](pictures/carDisplayTray_howtoPoint3.png)
 
 To solve this problem the angle $\beta$ has to be calculated. Therefore the already calculated angles $\alpha$ and $\gamma$ are used. The angle $\alpha$ is calculated in the same way as the angle $\gamma$ but for the point 2 instead of point 4 as described in the section above:
 

@@ -15,15 +15,18 @@
 _fn                = 100;
 
 // fr - frame
-fr_dim_x           = 133.0; //mm
+fr_dim_x           = 133.0 - 0.4; //mm - delta for v0.2
 
 fr_delta_y         =  14.0; //mm
 
 fr_dim_y1          =  68.0 + fr_delta_y; //mm
 fr_dim_y2          =  87.0 + fr_delta_y; //mm
-fr_dim_z           =  40.0; //mm
+fr_dim_z           =  40.0 - 1.0; //mm ‚- delta for v0.2
 
 fr_edge_r          =   5.0; //mm
+
+fr_bevel_y         =  40.0; //mm new for v0.2
+fr_bevel_angle     =  10.0; //°  new for v0.2
 
 fr_display_dim_x   = 122.5; //mm
 fr_display_dim_y   =  78.0; //mm
@@ -39,7 +42,7 @@ fr_feet_dim_z      =   3.0; //mm
 
 // bd - board
 bd_pos_x1          = -42.5; //mm
-bd_pos_x2          =   8.5 + fr_dim_x; // mm
+bd_pos_x2          = 141.5; //mm
 
 bd_pt1_pos_y       =   0.0; //mm
 bd_pt1_pos_z       =  -2.0; //mm
@@ -94,6 +97,13 @@ module carDisplayTray() {
                             polygon(points, convexity = 10);
 
                             circle(r = fr_edge_r, $fn = _fn);
+                        }
+                    }
+
+                    // bevel
+                    translate(v = [-0.1, fr_bevel_y, fr_dim_z]) {
+                        rotate(a = -fr_bevel_angle, v = [1, 0, 0]) {
+                            cube(size = [fr_dim_x + 0.2, 100, 20.0], center = false);
                         }
                     }
 
