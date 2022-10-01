@@ -31,7 +31,7 @@ Result of the rendered script for each version.
 
 <details open>
 <summary>v0.2</summary>
-<table style="background-color:rgba(0, 0, 0, 0);">
+<table>
 	<tr>
 		<th>Rendered front view</th>
 		<th>... and back view of the tray</th>
@@ -87,7 +87,7 @@ _Remark: Pictures for illustration of the sections are based on version v0.1_
 <details>
 <summary>Parameters for the part 'frame'</summary>
 <br>
-<table style="background-color:rgba(0, 0, 0, 0);">
+<table>
 	<tr>
 		<th>Name</th>
 		<th>Description</th>
