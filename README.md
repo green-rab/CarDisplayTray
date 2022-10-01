@@ -19,10 +19,28 @@ Files of the script:
 
 Version history:
 
-| Version | New features                   | Resolved bugs |
-| :-----: | :----------------------------- | :------------ |
-| v0.2    | -                              | $\circ$ frame x- and z-dimension adapted<br>$\circ$ added bevel for frame |
-| v0.1    | first version for initial test | -             |
+<table>
+	<tr>
+		<th align="center">Version</th>
+		<th>New features</th>
+		<th>Resolved bugs</th>
+	</tr>
+	<tr></tr>
+	<tr>
+		<td align="center">v0.2</td>
+		<td>-</td>
+		<td>
+			<li>frame x- and z-dimension adapted</li>
+			<li>added bevel for frame</li>
+		</td>
+	</tr>
+	<tr></tr>
+	<tr>
+		<td align="center">v0.1</td>
+		<td>first version for initial test</td>
+		<td>-</td>
+	</tr>
+</table>
 
 <a name="rendering"></a>
 ## Rendering
