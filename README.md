@@ -113,14 +113,13 @@ _Remark: Pictures for illustration of the sections are based on version v0.1_
 		<td>Resolution of rounded edges</td>
 	</tr>
 </table>
-<br>
 </details>
 
 <details>
 <summary>Parameters for the part 'frame'</summary>
 <br>
-<table align="left">
-	<tr>
+<table>
+	<tr align="left">
 		<th>Name</th>
 		<th>Description</th>
 	</tr>
@@ -199,8 +198,8 @@ _Remark: Pictures for illustration of the sections are based on version v0.1_
 <details>
 <summary>Parameters for the part 'board'</summary>
 <br>
-<table align="left">
-	<tr>
+<table>
+	<tr align="left">
 		<th>Name</th>
 		<th>Description</th>
 	</tr>
@@ -263,8 +262,8 @@ _Remark: Pictures for illustration of the sections are based on version v0.1_
 <details>
 <summary>Parameters for the part 'slot'</summary>
 <br>
-<table align="left">
-	<tr>
+<table>
+	<tr align="left">
 		<th>Name</th>
 		<th>Description</th>
 	</tr>
@@ -303,8 +302,8 @@ _Remark: Pictures for illustration of the sections are based on version v0.1_
 <details>
 <summary>Parameters for the part 'hole'</summary>
 <br>
-<table align="left">
-	<tr>
+<table>
+	<tr align="left">
 		<th>Name</th>
 		<th>Description</th>
 	</tr>
