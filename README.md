@@ -21,6 +21,7 @@ Version history:
 
 | Version | New features                   | Resolved bugs |
 | :-----: | :----------------------------- | :------------ |
+| v0.3    | -                              | -             |
 | v0.2    | -                              | $\circ$ frame x- and z-dimension adapted<br>$\circ$ added bevel for frame |
 | v0.1    | first version for initial test | -             |
 
@@ -57,10 +58,33 @@ Result of the rendered script for each version.
 </table>
 </details>
 
+<details>
+```
+| Test1 | Test2 |
+```
+</details>
+
 <a name="parameters"></a>
 ## Parameters ##
 
 Description of the used parameters in the script.
+
+<table>
+	<tr align="center">
+		<th>frame</th>
+		<th>board</th>
+		<th>slot</th>
+		<th>hole</th>
+	</tr>
+	<tr align="center">
+		<th><img src="pictures/carDisplayTray_partFrame_v0-1.png"></th>
+		<th><img src="pictures/carDisplayTray_partBoard_v0-1.png"></th>
+		<th><img src="pictures/carDisplayTray_partSlot_v0-1.png"></th>
+		<th><img src="pictures/carDisplayTray_partHole_v0-1.png"></th>
+	</tr>
+</table>
+
+TEST
 
 | frame | board | slot | hole |
 | :---: | :---: | :--: | :--: |
@@ -297,7 +321,7 @@ One way is to use the implemented Resize-function to scale the shape down before
 
 To improve the result where the shape keeps its original dimensions the coordinates of every single point has to be adjusted before the use of the Minkowski-function. So the shape is manually scaled down before to get the shape with its desired dimension after the function is executed.
 
-![Overview of single points that have to be calculated for the board](pictures/carDisplayTray_howToOverview.png)
+![Overview of single points that have to be calculated for the board](pictures/carDisplayTray_howtoOverview.png)
 
 The single steps for trigonometric calculation are explained below.
 
