@@ -19,8 +19,8 @@ fr_dim_x           = 133.0 - 0.4; //mm -> delta for v0.2
 
 fr_delta_y         =  14.0; //mm
 
-fr_dim_y1          =  68.0 + fr_delta_y; //mm ?????????????????????????????????
-fr_dim_y2          =  87.0 + fr_delta_y; //mm ?????????????????????????????????
+fr_dim_y1          =  68.0 + fr_delta_y - 3.5; //mm -> delta for v0.2
+fr_dim_y2          =  87.0 + fr_delta_y - 3.5; //mm -> delta for v0.2
 fr_dim_z           =  40.0 - 1.0; //mm -> delta for v0.2
 
 fr_edge_r          =   5.0; //mm
@@ -30,40 +30,41 @@ fr_bevel_angle     =  12.0 + 5.0;              //° -> new for v0.2
 
 fr_display_dim_x   = 122.5; //mm
 fr_display_dim_y   =  78.0; //mm
-fr_display_delta_z =   6.0; //mm
+fr_display_delta_z =   6.0 - 1.0; //mm -> delta for v0.2
 
 fr_rail_delta_x    =   1.5; //mm
 fr_rail_pos_x1     =  31.5 - fr_rail_delta_x; //mm
 fr_rail_pos_x2     = fr_rail_pos_x1 + 52.5 + (2 * fr_rail_delta_x); //mm
-fr_rail_dim_z      =   6.1; //mm
+fr_rail_dim_z      =   6.1 - 1.0; //mm -> delta for v0.2
 
-fr_feet_dim_x      =  15.0; //mm
-fr_feet_dim_z      =   3.0; //mm
+//fr_feet_dim_x      =  15.0; //mm
+//fr_feet_dim_z      =   3.0; //mm
 
 // bd - board
-bd_pos_x1          = -42.5; //mm
-bd_pos_x2          = 141.5; //mm
+bd_pos_x1          = -42.5 - 0.2; //mm -> delta for v0.2
+bd_pos_x2          = 141.5 - 0.2; //mm -> delta for v0.2
 
 bd_pt1_pos_y       =   0.0; //mm
-bd_pt1_pos_z       =  -2.0; //mm
-bd_pt2_pos_y       = -17.5; //mm
-bd_pt2_pos_z       =  -2.0; //mm
+bd_pt1_pos_z       =  -2.0 - 1.0; //mm -> delta for v0.2
+bd_pt2_pos_y       = -17.5 + 3.0; //mm ????????????????????????????????????????
+bd_pt2_pos_z       =  -2.0 - 1.0; //mm -> delta for v0.2
 bd_pt3_pos_y       = -20.5; //mm
-bd_pt3_pos_z       =  31.0; //mm
+bd_pt3_pos_z       =  31.0 - 1.0; //mm -> delta for v0.2
 bd_pt4_pos_y       = -15.0; //mm
-bd_pt4_pos_z       =  43.5; //mm
+bd_pt4_pos_z       =  43.5 - 1.0; //mm -> delta for v0.2
 bd_pt5_pos_y       =   0.0; //mm
-bd_pt5_pos_z       =  43.5; //mm
+bd_pt5_pos_z       =  43.5 - 1.0; //mm -> delta for v0.2
 
 bd_edge_r          =   5.0; //mm
 
 // st - slot
 st_delta_x         =   3.0; //mm
 st_delta_y         =   1.0; //mm
+st_delta_z         =   5.0; //mm -> new for v0.2 ??????????????????????????????
 
 st_pos_x1          =  58.0 + st_delta_x; //mm
 st_pos_x2          = st_pos_x1 + 20.0 - (2 * st_delta_x); //mm
-st_pos_y1          =  32.0 + st_delta_y; //mm
+st_pos_y1          =  32.0 + st_delta_y + 16.0; //mm -> delta for v0.2
 st_pos_y2          = st_pos_y1 + 15.0 - (2 * st_delta_y); //mm
 
 st_bar_dim_z       =   2.0; //mm
@@ -71,6 +72,8 @@ st_bar_dim_z       =   2.0; //mm
 // hl - hole
 hl_connector_d     =  26.0; //mm
 hl_connector_dim_x = bd_pos_x1 + 6.0; //mm
+
+hl_wire_d          =  6.0; //mm -> new for v0.2
 
 
 // call module
@@ -123,12 +126,12 @@ module carDisplayTray() {
                 }
 
                 // feet
-                translate(v = [fr_dim_x/2 - fr_display_dim_x/2, 0, fr_display_delta_z]) {
-                    cube(size = [fr_feet_dim_x, fr_display_dim_y, fr_feet_dim_z], center = false);
-                }
-                translate(v = [fr_dim_x/2 + fr_display_dim_x/2 - fr_feet_dim_x, 0, fr_display_delta_z]) {
-                    cube(size = [fr_feet_dim_x, fr_display_dim_y, fr_feet_dim_z], center = false);
-                }
+                //translate(v = [fr_dim_x/2 - fr_display_dim_x/2, 0, fr_display_delta_z]) {
+                //    cube(size = [fr_feet_dim_x, fr_display_dim_y, fr_feet_dim_z], center = false);
+                //}
+                //translate(v = [fr_dim_x/2 + fr_display_dim_x/2 - fr_feet_dim_x, 0, fr_display_delta_z]) {
+                //    cube(size = [fr_feet_dim_x, fr_display_dim_y, fr_feet_dim_z], center = false);
+                //}
 
                 // remove rounded edges inside board
                 translate(v = [0, 0.1, 0]) {
@@ -187,12 +190,22 @@ module carDisplayTray() {
             // slot
             union() {
                 // slot for fixation
-                translate(v = [st_pos_x1, st_pos_y1, 0]) {
-                    cube(size = [st_pos_x2-st_pos_x1, st_pos_y2-st_pos_y1, fr_rail_dim_z], center = false);
+                translate(v = [st_pos_x1, st_pos_y1, -st_delta_z]) {
+                    difference() {
+                        cube(size = [st_pos_x2-st_pos_x1, st_pos_y2-st_pos_y1, fr_rail_dim_z+st_delta_z], center = false);
+
+                        tmp_size_yz = sqrt(2 * pow(st_delta_z, 2));
+
+                        translate(v = [-0.1, st_pos_y2-st_pos_y1, -st_delta_z]) {
+                            rotate(a = 45, v = [1, 0, 0]) {
+                                cube(size = [st_pos_x2-st_pos_x1+0.2, tmp_size_yz, tmp_size_yz], center = false);
+                            }
+                        }
+                    }
                 }
 
                 // bar
-                translate(v = [st_pos_x1, 0, fr_rail_dim_z]) {
+                translate(v = [st_pos_x1, 0, fr_rail_dim_z - st_bar_dim_z]) {
                     cube(size = [st_pos_x2-st_pos_x1, st_pos_y2, st_bar_dim_z], center = false);
                 }
             }
@@ -201,13 +214,20 @@ module carDisplayTray() {
         // hole
         translate(v = [-0.1, hl_connector_d/2, fr_display_delta_z + hl_connector_d/2]) {
             rotate(a = 90, v = [0, 1, 0]) {
-                cylinder(h = (fr_dim_x - fr_display_dim_x)/2 + fr_feet_dim_x + 0.2, d = hl_connector_d, center = false, $fn = _fn);
+                //cylinder(h = (fr_dim_x - fr_display_dim_x)/2 + fr_feet_dim_x + 0.2, d = hl_connector_d, center = false, $fn = _fn);
+                cylinder(h = (fr_dim_x - fr_display_dim_x)/2 + 0.2, d = hl_connector_d, center = false, $fn = _fn);
+            }
+        }
+        translate(v = [hl_connector_dim_x, hl_wire_d/2, fr_display_delta_z]) {
+            rotate(a = 90, v = [0, 1, 0]) {
+                cylinder(h = abs(hl_connector_dim_x) + fr_dim_x - (fr_dim_x-fr_display_dim_x)/2, d = hl_wire_d, center = false, $fn = _fn);
             }
         }
 
         // hole inside frame
         translate(v = [0, 0, fr_display_delta_z]) {
-            cube(size = [(fr_dim_x - fr_display_dim_x)/2 + fr_feet_dim_x + 0.1, hl_connector_d/2, hl_connector_d], center = false);
+            //cube(size = [(fr_dim_x - fr_display_dim_x)/2 + fr_feet_dim_x + 0.1, hl_connector_d/2, hl_connector_d], center = false);
+            cube(size = [(fr_dim_x - fr_display_dim_x)/2 + 0.1, hl_connector_d/2, hl_connector_d], center = false);
         }
 
         // hole at board

@@ -31,7 +31,10 @@ Version history:
 		<td align="left">-</td>
 		<td align="left">
 			<li>frame x- and z-dimension adapted</li>
+			<li>shape of board adapted</li>
+			<li>length of slot was to short</li>
 			<li>added bevel for frame</li>
+			<li>feet for display deleted for lowering</li>
 		</td>
 	</tr>
 	<tr></tr>
@@ -277,6 +280,10 @@ _Remark: Pictures for illustration of the sections are based on version v0.1_
 		<td>Tolerance for slot in y-dimension</td>
 	</tr>
 	<tr>
+		<td>st_delta_z</td>
+		<td>Height of slot outside bottom of frame</td>
+	</tr>
+	<tr>
 		<td>st_pos_x1</td>
 		<td>Left position of slot for fixation in channel</td>
 	</tr>
@@ -310,11 +317,15 @@ _Remark: Pictures for illustration of the sections are based on version v0.1_
 	</tr>
 	<tr>
 		<td>hl_connector_d</td>
-		<td>Diameter for hole for connector and wire</td>
+		<td>Diameter for hole for connector</td>
 	</tr>
 	<tr>
 		<td>hl_connector_dim_x</td>
 		<td>x-dimension for hole cutting off the board</td>
+	</tr>
+	<tr>
+		<td>hl_wire_d</td>
+		<td>Diameter for hole for wire</td>
 	</tr>
 </table>
 <br>
