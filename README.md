@@ -27,21 +27,23 @@ Version history:
 	</tr>
 	<tr></tr>
 	<tr>
-		<td align="center">v0.2</td>
-		<td align="left">-</td>
-		<td align="left">
+		<td align="center" valign="top">v0.2</td>
+		<td align="left" valign="top">
+			<li>additional tube for wire of display</li>
+			<li>display lowered by several adaptions</li>
+		</td>
+		<td align="left" valign="top">
 			<li>frame x- and z-dimension adapted</li>
 			<li>shape of board adapted</li>
 			<li>length of slot was to short</li>
-			<li>added bevel for frame</li>
-			<li>feet for display deleted for lowering</li>
+			<li>added bevel for frame (without not passing into slot)</li>
 		</td>
 	</tr>
 	<tr></tr>
 	<tr>
-		<td align="center">v0.1</td>
-		<td align="left">first version for initial test</td>
-		<td align="left">-</td>
+		<td align="center" valign="top">v0.1</td>
+		<td align="left" valign="top">first version for initial test</td>
+		<td align="left" valign="top">-</td>
 	</tr>
 </table>
 

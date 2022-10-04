@@ -15,7 +15,7 @@
 _fn                = 100;
 
 // fr - frame
-fr_dim_x           = 133.0 - 0.4; //mm -> delta for v0.2
+fr_dim_x           = 133.0; //mm
 
 fr_delta_y         =  14.0; //mm
 
@@ -25,8 +25,8 @@ fr_dim_z           =  40.0 - 1.0; //mm -> delta for v0.2
 
 fr_edge_r          =   5.0; //mm
 
-fr_bevel_y         =  38.0 - 2.0 + fr_delta_y; //mm -> new for v0.2
-fr_bevel_angle     =  12.0 + 5.0;              //° -> new for v0.2
+    fr_bevel_y         =  38.0 - 1.0 + fr_delta_y; //mm -> new for v0.2
+    fr_bevel_angle     =  12.0 + 2.0;              //°  -> new for v0.2
 
 fr_display_dim_x   = 122.5; //mm
 fr_display_dim_y   =  78.0; //mm
@@ -41,12 +41,12 @@ fr_rail_dim_z      =   6.1 - 1.0; //mm -> delta for v0.2
 //fr_feet_dim_z      =   3.0; //mm
 
 // bd - board
-bd_pos_x1          = -42.5 - 0.2; //mm -> delta for v0.2
-bd_pos_x2          = 141.5 - 0.2; //mm -> delta for v0.2
+bd_pos_x1          = -42.5; //mm
+bd_pos_x2          = 141.5 + 1.6; //mm -> delta for v0.2
 
 bd_pt1_pos_y       =   0.0; //mm
 bd_pt1_pos_z       =  -2.0 - 1.0; //mm -> delta for v0.2
-bd_pt2_pos_y       = -17.5 + 3.0; //mm ????????????????????????????????????????
+bd_pt2_pos_y       = -17.5 + 3.5; //mm -> delta for v0.2
 bd_pt2_pos_z       =  -2.0 - 1.0; //mm -> delta for v0.2
 bd_pt3_pos_y       = -20.5; //mm
 bd_pt3_pos_z       =  31.0 - 1.0; //mm -> delta for v0.2
@@ -60,11 +60,11 @@ bd_edge_r          =   5.0; //mm
 // st - slot
 st_delta_x         =   3.0; //mm
 st_delta_y         =   1.0; //mm
-st_delta_z         =   5.0; //mm -> new for v0.2 ??????????????????????????????
+st_delta_z         =   3.0; //mm -> new for v0.2
 
 st_pos_x1          =  58.0 + st_delta_x; //mm
 st_pos_x2          = st_pos_x1 + 20.0 - (2 * st_delta_x); //mm
-st_pos_y1          =  32.0 + st_delta_y + 16.0; //mm -> delta for v0.2
+st_pos_y1          =  32.0 + st_delta_y + 12.5; //mm -> delta for v0.2
 st_pos_y2          = st_pos_y1 + 15.0 - (2 * st_delta_y); //mm
 
 st_bar_dim_z       =   2.0; //mm
