@@ -4,7 +4,7 @@
 
 The 3D-model is designed for a BMW 520i from 1990 and integrates a display for a rear view camera by replacing the original drawer for cigarettes. During parking you have to pull the tray that allows you to watch the display for the camera in the back. During driving the display is hidden by pushing it back to the center console of the car.
 
-__< VIDEO TBD >__
+https://user-images.githubusercontent.com/81587537/199813278-c368dde9-95ab-47c6-83f0-6142d9d5b517.mp4
 
 Software for cad construction: OpenSCAD 2015.03
 - [https://openscad.org](https://openscad.org)
@@ -46,6 +46,11 @@ Version history:
 		<td align="left" valign="top">-</td>
 	</tr>
 </table>
+
+Open points:
+
+- Frame for display can be a little bit deeper for easier insertion
+- Slot for fixation can be 1 mm higher
 
 <a name="rendering"></a>
 ## Rendering
